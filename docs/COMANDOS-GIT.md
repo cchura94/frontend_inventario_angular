@@ -17,3 +17,7 @@ git push -u origin develop
 ```
 git flow init
 ```
+### Crear una nueva funcionanlidad
+```
+git flow feature start add-config-rest
+```
