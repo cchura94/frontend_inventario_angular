@@ -1,13 +1,25 @@
 <h1>Ingrese su credenciales</h1>
-<form [formGroup]="loginForm">
-    <label for="">Ingrese su Correo</label>
-    <input type="text" formControlName="email">
+{{cargando}}
+<h1 *ngIf="cargando">CARGANDO...</h1>
+<form [formGroup]="loginForm" (ngSubmit)="funIngresar()">
+    <label for="e">Ingrese su Correo</label>
+    <input type="email" formControlName="email">
+    <div *ngIf="loginForm.controls.email.errors && loginForm.controls.email.touched">
+        <small *ngIf="loginForm.controls.email.errors['required']">EL Correo es Obligatorio</small>
+        <small *ngIf="loginForm.controls.email.errors['email']">El Correo es incorrecto</small>
+    </div>
     <br>
-    <label for="">Ingrese su Contraseña</label>
+    <label for="p">Ingrese su Contraseña</label>
     <input type="password" formControlName="password">
+    <div *ngIf="loginForm.controls.password.errors && loginForm.controls.password.touched">
+        <small *ngIf="loginForm.controls.password.errors['required']">La contraseña es Obligatoria</small>
+        <small *ngIf="loginForm.controls.password.errors['minlength']">Minimo 6 caracteres</small>
+    </div>
     <br>
     <input type="submit" [disabled]="!loginForm.valid">
 </form>
+
+
 
 {{ loginForm.value.email }}
 {{ loginForm.value.password }}
