@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { tap } from 'rxjs';
 
 export const authInterceptorInterceptor: HttpInterceptorFn = (req, next) => {
-  console.log("**************** AUTHINTERCEPTOR ACTIVADO!!! **********");
+  // console.log("**************** AUTHINTERCEPTOR ACTIVADO!!! **********");
  
   const token = localStorage.getItem("access_token");
 
